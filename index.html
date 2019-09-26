@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)http://leaflet.github.io/Leaflet.heat/demo/ -->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Leaflet.heat demo</title>
+    <link rel="stylesheet" href="./assets/leaflet.css" />
+    <style>
+      #map {
+        width: 800px;
+        height: 600px;
+      }
+      .leaflet-heatmap-layer {
+        opacity: 0.8;
+      }
+      body {
+        font: 16px/1.4 "Helvetica Neue", Arial, sans-serif;
+      }
+    </style>
+  </head>
+  <body class="">
+    <div id="map"></div>
+    <script src="./assets/leaflet.js"></script>
+    <script src="./assets/leaflet-heat.js"></script>
+    <script src="./assets/coordinates.js"></script>
+
+    <script>
+      var initialLatLon = [-37.87, 175.475];
+      var map = L.map("map").setView(initialLatLon, 12);
+
+      var tiles = L.tileLayer("http://{s}.tile.osm.org/{z}/{x}/{y}.png", {
+        attribution:
+          '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+      }).addTo(map);
+
+      var heat = L.heatLayer(coordinates).addTo(map);
+    </script>
+  </body>
+</html>
